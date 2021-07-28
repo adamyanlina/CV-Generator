@@ -1,0 +1,1 @@
+exports.isDirEmpty = require('./cvFolder');
