@@ -1,0 +1,23 @@
+{
+  "name": "cv_generator",
+  "version": "1.0.0",
+  "description": "Service for creating CV",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@adamyanlina",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "compose-middleware": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "morgan": "^1.10.0"
+  }
+}
