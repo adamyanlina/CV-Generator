@@ -9,7 +9,7 @@ const app = express();
 
 const { env } = process;
 
-const port = env.PORT || '7000';
+const port = env.PORT || 7000;
 const serviceVersion = env.SERVICE_VERSION || '/service/v1.0';
 
 app.use(express.static('./src/public'));
