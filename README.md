@@ -55,7 +55,7 @@ Service uses a number of open source projects to work properly:
 
 ## Documentation 
 
-You can find the documentation by following this [[link](https://documenter.getpostman.com/view/13495505/TzscqTBM)
+You can find the documentation by following this [Postman link](https://documenter.getpostman.com/view/13495505/TzscqTBM)
 
 ## License
 
