@@ -6,14 +6,14 @@ const { getJson } = require('../helpers');
 const pathDocuments = './src/public/cv/';
 
 exports.generateZIP = (req, res, next) => {
-  if(!fs.existsSync(`${pathDocuments}`)) {
+  if(!fs.existsSync(`${pathDocuments}cv.zip`)) {
     try {
       getJson(req, res);
   
       const file = new AdmZip();
       
       file.addLocalFolder(pathDocuments);
-      fs.rmdirSync(pathDocuments, { recursive: true, force: true });
+      fs.rmdirSync(pathDocuments, { recursive: true });
   
       const fileName = 'cv.zip';
       const fileType = 'application/zip';
