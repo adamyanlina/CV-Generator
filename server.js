@@ -20,11 +20,11 @@ app.set('views', 'src/views');
 const { env } = process;
 
 const port = env.PORT || 7000;
-const serviceVersion = env.SERVICE_VERSION || '/service/v1.0';
+const apiVersion = env.api_VERSION || '/api/v1.0';
 
 app.use(express.static('./src/public'));
 
-app.use(serviceVersion, router);
+app.use(apiVersion, router);
 
 const server = () => app
   .listen(port, () => console.log(`Server listen ${port} port.`))
