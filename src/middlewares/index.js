@@ -1,4 +1,4 @@
-const cors = require('cors')();
+const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
 const { compose } = require('compose-middleware');
@@ -14,7 +14,7 @@ module.exports = {
     morgan('combined'),
     urlencoded,
     json,
-    cors,
+    cors(),
     accessControlAllow,
   ]),
 };

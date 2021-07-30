@@ -1,38 +1,22 @@
 # Service for PDF documents generation & archiving
 
-The service, having received a POST request with json data
+Only domains (and subdomains) within aca.am can make requests to the service.
+The service, having received a POST request with json file
 
 - Creates PDF documents in its directory for each object in 'cv' folder
 - Sends an archive(.zip) of the folder in response
 
 ## Getting started
 
-Send a request to the service
-  ```JS
-   const users = require('./users.json');
-  
-   const getZip = async (req, res, next) => {
-    const serviceURL = 'http://example.com/service/v1.0/cv/generate';
+Send a POST request to the [http://zip-pdf.herokuapp.com/api/v1.0/cv/generate]('http://zip-pdf.herokuapp.com/api/v1.0/cv/generate') by sending a json file.
 
-    try {
-        const response = await fetch(serviceURL, { 
-            method: 'POST', 
-            body: JSON.stringify(users), 
-            headers: {'Content-Type': 'application/json'}
-        });
-        const buffer = await response.buffer();
-        // To do something...
-    } catch (error) {
-        next(error);
-    }
-}
-  ```
+You can test service by link - [http://zip-pdf.herokuapp.com/api/v1.0/test-service](http://zip-pdf.herokuapp.com/api/v1.0/test-service)
 
 ## Tech
 
 Service uses a number of open source projects to work properly:
 
-- [node.js](https://nodejs.org/) - evented I/O for the backend
+- [Node.js](https://nodejs.org/) - evented I/O for the backend
 - [Express](https://expressjs.com/) - fast node.js network app framework [@tjholowaychuk]
 - [PDFKit](https://www.npmjs.com/package/pdfkit) - JavaScript PDF generation library for Node and the browser
 - [ADM-ZIP](https://www.npmjs.com/package/adm-zip) - pure JavaScript implementation for zip data compression for NodeJS.
