@@ -21,11 +21,10 @@ module.exports = getJson = (req, res) => {
 
 const generatePDF = (users) => {
     try {  
+      fs.rmdirSync(pathDocuments, { recursive: true });
       fs.mkdirSync(pathDocuments, { recursive: true });
 
       users.map(user => {
-          console.log('user: ', user);
-
           const { email } = user;
           const docName = email.slice(0, email.length - 12);
   
