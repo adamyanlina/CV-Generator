@@ -11,11 +11,8 @@ exports.generateZIP = (req, res, next) => {
       getJson(req, res);
   
       const file = new AdmZip();
-
-      console.log('path cv folder: ', pathDocuments);
       
       file.addLocalFolder(pathDocuments);
-      fs.rmdirSync(pathDocuments, { recursive: true });
   
       const fileName = 'cv.zip';
       const fileType = 'application/zip';
