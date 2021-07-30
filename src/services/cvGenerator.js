@@ -3,7 +3,7 @@ const AdmZip = require('adm-zip');
 
 const { getJson } = require('../helpers');
 
-const pathDocuments = './src/public/cv/';
+const pathDocuments = './src/public/cv';
 
 exports.generateZIP = (req, res, next) => {
   if(!fs.existsSync(`${pathDocuments}cv.zip`)) {
@@ -11,6 +11,8 @@ exports.generateZIP = (req, res, next) => {
       getJson(req, res);
   
       const file = new AdmZip();
+
+      console.log('path cv folder: ', pathDocuments);
       
       file.addLocalFolder(pathDocuments);
       fs.rmdirSync(pathDocuments, { recursive: true });
