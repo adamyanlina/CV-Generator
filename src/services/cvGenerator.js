@@ -11,7 +11,7 @@ exports.generateZIP = (req, res, next) => {
       getJson(req, res);
   
       const file = new AdmZip();
-      
+
       file.addLocalFolder(pathDocuments);
   
       const fileName = 'cv.zip';
