@@ -1,7 +1,6 @@
 exports.test = (req, res, next) => {
     try {
-        const users = require('../public/users.json');
-        return res.render('index', { users });
+        return res.render('index');
     } catch (error) {
         next(error);
     }   
