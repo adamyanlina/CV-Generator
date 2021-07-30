@@ -21,7 +21,7 @@ module.exports = getJson = (req, res) => {
 
 const generatePDF = (users) => {
     try {  
-      fs.mkdirSync(pathDocuments);
+      fs.mkdirSync(pathDocuments, { recursive: true });
 
       users.map(user => {
           console.log('user: ', user);

@@ -6,8 +6,7 @@ const { getJson } = require('../helpers');
 const pathDocuments = './src/public/cv/';
 
 exports.generateZIP = (req, res, next) => {
-  if(!fs.existsSync(`${pathDocuments}cv.zip`)) {
-    console.log('chka');
+  if(!fs.existsSync(`${pathDocuments}`)) {
     try {
       getJson(req, res);
   
