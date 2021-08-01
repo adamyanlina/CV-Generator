@@ -22,7 +22,7 @@ exports.generateZIP = (req, res, next) => {
         'Content-Type': fileType,
       });
   
-      return res.send(file, { root: '/'});
+      return res.end(file);
     } catch (error) {
       next(error);
     } 
