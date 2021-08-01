@@ -28,7 +28,6 @@ const generatePDF = (users) => {
   
           const doc = new PDFDocument();
           
-          // const tempfile =Tempfile.new([docName, '.pdf'], Rails.root.join('tmp'))
           doc.pipe(fs.createWriteStream(`./tmp/${docName}.pdf`));
   
           doc.fontSize(16)
