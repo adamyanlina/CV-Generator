@@ -17,14 +17,12 @@ exports.generateZIP = (req, res, next) => {
 
       fs.writeFileSync(`./tmp/${fileName}`, file.toBuffer());
 
-      const zip = fs.readFileSync(`./tmp/${fileName}`);
-
       res.writeHead(200, {
         'Content-Disposition': `attachment; filename="${fileName}"`,
         'Content-Type': fileType,
       });
   
-      return res.end(zip);
+      return res.sendFile(`./tmp/${fileName}`);
     } catch (error) {
       next(error);
     } 
