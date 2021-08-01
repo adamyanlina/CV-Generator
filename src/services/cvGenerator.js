@@ -15,7 +15,8 @@ exports.generateZIP = (req, res, next) => {
       const fileName = 'cv.zip';
       const fileType = 'application/zip';
 
-      fs.writeFileSync(`./tmp/${fileName}`, file.toBuffer());
+      file.writeZip(`./tmp/${fileName}`);
+      // file.pipe(res);
 
       res.writeHead(200, {
         'Content-Disposition': `attachment; filename="${fileName}"`,
