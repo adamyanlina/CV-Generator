@@ -1,4 +1,5 @@
 const fs = require('fs'); 
+const path = require('path');
 const AdmZip = require('adm-zip');
 
 const { getJson } = require('../helpers');
@@ -22,7 +23,7 @@ exports.generateZIP = (req, res, next) => {
         'Content-Type': fileType,
       });
   
-      return res.sendFile(`./tmp/${fileName}`);
+      return res.sendFile(path.join(__dirname, '/tmp', fileName));
     } catch (error) {
       next(error);
     } 
