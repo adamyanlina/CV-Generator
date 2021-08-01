@@ -15,14 +15,14 @@ exports.generateZIP = (req, res, next) => {
       const fileName = 'cv.zip';
       const fileType = 'application/zip';
 
-      file.pipe(res);
+      file.writeZip(`./tmp/${fileName}`);
 
       res.writeHead(200, {
         'Content-Disposition': `attachment; filename="${fileName}"`,
         'Content-Type': fileType,
       });
   
-      return res.end();
+      return res.send(file, { root: '/'});
     } catch (error) {
       next(error);
     } 
