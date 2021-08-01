@@ -4,25 +4,23 @@ const AdmZip = require('adm-zip');
 const { getJson } = require('../helpers');
 
 exports.generateZIP = (req, res, next) => {
-  if(!fs.existsSync(`./tmp/cv.zip`)) {
-    try {
-      getJson(req, res);
-  
-      const file = new AdmZip();
+  try {
+    getJson(req, res);
 
-      file.addLocalFolder('./tmp');
-      
-      const fileName = 'cv.zip';
-      const fileType = 'application/zip';
+    const file = new AdmZip();
 
-      res.writeHead(200, {
-        'Content-Disposition': `attachment; filename="${fileName}"`,
-        'Content-Type': fileType,
-      });
-  
-      return res.send(file.toBuffer());
-    } catch (error) {
-      next(error);
-    } 
-  }
+    file.addLocalFolder('./tmp');
+    
+    const fileName = 'cv.zip';
+    const fileType = 'application/zip';
+
+    res.writeHead(200, {
+      'Content-Disposition': `attachment; filename="${fileName}"`,
+      'Content-Type': fileType,
+    });
+
+    return res.end(file.toBuffer());
+  } catch (error) {
+    next(error);
+  } 
 }
