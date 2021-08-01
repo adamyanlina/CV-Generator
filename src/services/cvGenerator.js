@@ -11,16 +11,20 @@ exports.generateZIP = (req, res, next) => {
       const file = new AdmZip();
 
       file.addLocalFolder('./tmp');
-  
+      
       const fileName = 'cv.zip';
       const fileType = 'application/zip';
-  
+
+      fs.writeFileSync(`./tmp/${fileName}`, file.toBuffer());
+
+      const zip = fs.readFileSync(`./tmp/${fileName}`);
+
       res.writeHead(200, {
         'Content-Disposition': `attachment; filename="${fileName}"`,
         'Content-Type': fileType,
       });
   
-      return res.end(file.toBuffer());
+      return res.end(zip);
     } catch (error) {
       next(error);
     } 
