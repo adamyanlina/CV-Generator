@@ -20,7 +20,7 @@ exports.generateZIP = (req, res, next) => {
         'Content-Type': fileType,
       });
   
-      return res.end(file.toBuffer());
+      return res.send(file.toBuffer());
     } catch (error) {
       next(error);
     } 
