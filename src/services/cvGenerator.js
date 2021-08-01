@@ -3,16 +3,14 @@ const AdmZip = require('adm-zip');
 
 const { getJson } = require('../helpers');
 
-const pathDocuments = './src/public/cv';
-
 exports.generateZIP = (req, res, next) => {
-  if(!fs.existsSync(`${pathDocuments}cv.zip`)) {
+  if(!fs.existsSync(`./tmp/cv.zip`)) {
     try {
       getJson(req, res);
   
       const file = new AdmZip();
 
-      file.addLocalFolder(pathDocuments);
+      file.addLocalFolder('./tmp');
   
       const fileName = 'cv.zip';
       const fileType = 'application/zip';

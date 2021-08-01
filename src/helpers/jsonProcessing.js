@@ -2,8 +2,6 @@ const fs = require('fs');
 const multer = require('multer');
 const PDFDocument = require('pdfkit');
 
-const pathDocuments = './src/public/cv';
-
 module.exports = getJson = (req, res) => {
   const storage = multer.memoryStorage({
     destination: function(req, file, callback) {
@@ -21,8 +19,8 @@ module.exports = getJson = (req, res) => {
 
 const generatePDF = (users) => {
     try {  
-      fs.rmdirSync(pathDocuments, { recursive: true });
-      fs.mkdirSync(pathDocuments, { recursive: true });
+      fs.rmdirSync('./tmp', { recursive: true });
+      fs.mkdirSync('./tmp', { recursive: true });
 
       users.map(user => {
           const { email } = user;
@@ -30,7 +28,8 @@ const generatePDF = (users) => {
   
           const doc = new PDFDocument();
           
-          doc.pipe(fs.createWriteStream(`${pathDocuments}/${docName}.pdf`));
+          // const tempfile =Tempfile.new([docName, '.pdf'], Rails.root.join('tmp'))
+          doc.pipe(fs.createWriteStream(`./tmp/${docName}.pdf`));
   
           doc.fontSize(16)
             .fillColor('blue')
